@@ -36,6 +36,10 @@
     </div>
     <main class="container" style="margin-top: 75px">
         <h1>PHP Info Page</h1>
+        <hr>
+        <?php 
+            phpinfo()
+        ?>
     </main>
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
