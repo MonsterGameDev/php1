@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <h1><?php echo "Lars Erik er sød"</h1>
-    <h2><?php echo "... og lugter godt!"
+    <h1><?php echo "Lars Erik er sød" ?></h1>
+    <h2><?php echo "... og lugter godt!" ?></h2>
 </body>
 </html>
