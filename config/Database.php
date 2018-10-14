@@ -16,7 +16,7 @@
                 }
                 
                 $this->host = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
-                $this->db_name = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+                $this->db_name = 'users'; preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
                 $this->username = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
                 $this->password = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 
