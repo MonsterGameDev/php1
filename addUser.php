@@ -36,7 +36,7 @@
     <main class="container" style="margin-top: 75px">
     <?php 
         $ok = false;
-        if(isset($_POST["submit"])) {
+        if(!isset($_POST["submit"])) {
             $ok = true;
 
             $firstname = $_POST["firstname"];
@@ -112,9 +112,9 @@
 
 
     ?>
-        <form method="post" action="">
+        <form method="post" action="/api/contactinfo/read.php">
             <div class="form-group">
-                <label for="firstname">Firstname</label>
+                <label for="firstname">Firstnamre</label>
                 <input id="firstname" name="firstname" class="form-control" type="text">
             </div>
             <div class="form-group">

@@ -1,4 +1,7 @@
 <?php
+ $data = file_get_content('php://input');
+ echo "Data: " . $data;
+
 class ContactInfo {
     //DBStuff
     private $conn;
@@ -32,6 +35,13 @@ class ContactInfo {
         $stmt->execute();
 
         return $stmt;
+    }
+
+
+    public function create() {
+        $data = file_get_content('php://input');
+        echo "Data: " . $data
+        //return $data
     }
 
 }
