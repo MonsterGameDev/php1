@@ -7,7 +7,6 @@
     include_once './../../models/contactinfo.php';
 
     //Instantiate and connect
-   echo "Hello Read is here";
 try {
    $database = new Database();
    $db = $database->connect();
@@ -15,9 +14,9 @@ try {
     $ci = new ContactInfo($db);
 
     //Reading content
-    $result = $ci.read();
+    // $result = $ci.read();
     //Get rowcount
-    $num = $result->rowCount();
+    // $num = $result->rowCount();
 
     echo $num;
 } catch (Exception $e) {
