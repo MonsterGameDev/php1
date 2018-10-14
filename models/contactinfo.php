@@ -1,6 +1,5 @@
 <?php
- $data = file_get_content('php://input');
- echo "Data: " . $data;
+
 
 class ContactInfo {
     //DBStuff
@@ -38,10 +37,6 @@ class ContactInfo {
     }
 
 
-    public function create() {
-        $data = file_get_content('php://input');
-        echo "Data: " . $data
-        //return $data
-    }
+   
 
 }
