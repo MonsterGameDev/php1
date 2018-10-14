@@ -33,7 +33,7 @@
             </div>
         </div>
     </div>
-    <main class="container" style="margin-top: 75px">
+    <main class="container" style="margin-top: 75px" id="main">
    
 
     <h1>Abonnement</h1>
@@ -106,6 +106,7 @@
                 dataType: 'json',
                 success: function(data) {
                     console.log("Data: " + data.message);
+                    $('#main').html("<h1>Success</h1><strong>" + data.message + "</strong>")
                 },
                 error: function(e) {
                     console.log('Error:' + e.messageText)
