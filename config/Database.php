@@ -24,7 +24,10 @@
             };
 
             try {
-               // $strConn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name, $this->username, $this->password;
+               echo 'mysql:host=' . $this->host;
+               echo ';dbname=' . $this->db_name;
+               echo $this->username;
+               echo $this->password;
 
                 $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->db_name, 
                 $this->username, $this->password);
