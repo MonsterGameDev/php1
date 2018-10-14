@@ -1,4 +1,10 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+
+include_once './../../config/Database.php';
+include_once './../../models/contactinfo.php';
+
  $data = file_get_contents('php://input');
 
  $data = json_decode($data);
@@ -20,4 +26,17 @@ echo printf('Firstname: %s<br>
     street: %s<br>
     city: %s<br>
     country: %s<br>
-    ', $firstname, $lastnane, $jobtitle, $email, $phone, $street, $city, $country);
+    ', $firstname, $lastname, $jobtitle, $email, $phone, $street, $city, $country);
+
+
+    try {
+        $database = new Database();
+        $db = $database->connect();
+         //Instantiate Contactinfo - object
+         $ci = new ContactInfo($db);
+     
+         // Reading content
+         $result = $ci->create($data);
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+    }

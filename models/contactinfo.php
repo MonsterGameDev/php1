@@ -36,6 +36,10 @@ class ContactInfo {
         return $stmt;
     }
 
+    public function create($data) {
+        echo "In create";
+    }
+
 
    
 
