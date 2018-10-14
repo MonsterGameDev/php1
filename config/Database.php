@@ -35,9 +35,5 @@
 
 
         }
-
-        
-        
-      //  $link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,'users');
         
     }
