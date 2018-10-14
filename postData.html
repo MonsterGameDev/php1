@@ -40,6 +40,12 @@
             success: function(data) {
                 console.log("Data: " + data);
             },
+            error: function(e) {
+                console.log('Error:' + e.messageText)
+            },
+            complete: function() {
+                console.log("done");
+            },
             data: jsonObject
         })
  

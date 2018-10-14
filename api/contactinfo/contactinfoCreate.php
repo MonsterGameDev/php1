@@ -30,7 +30,7 @@ try {
         $result = $ci->create($data);
         
         
-        echo "Result: " . $result;
+       // echo "Result: " . $result;
         echo json_encode (Array('message' => $result));
 
 } catch (Exception $e) {
