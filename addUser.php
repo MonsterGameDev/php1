@@ -34,88 +34,11 @@
         </div>
     </div>
     <main class="container" style="margin-top: 75px">
-    <?php 
-        $ok = false;
-        if(!isset($_POST["submit"])) {
-            $ok = true;
-
-            $firstname = $_POST["firstname"];
-            $lastname = $_POST["lastname"];
-            $jobtitle = $_POST["jobtitle"];
-            $email  = $_POST["email"];
-            $phone = $_POST["phone"];
-            $street = $_POST["street"];
-            $city = $_POST["city"];
-            $country = $_POST["country"];
-
-            // echo printf("You entered: <br>
-            //     Firstname: %s <br>
-            //     Lastname: %s <br>
-            //     Jobtitle: %s <br>
-            //     Email: %s <br>
-            //     Phone: %s <br>
-            //     Street: %s <br>
-            //     City: %s <br>
-            //     Country: %s
-            //     ", $firstname, $lastname,$jobtitle, $email, $phone, $street, $city, $country);
-        
-                foreach ($_SERVER as $key => $value) {
-                    if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
-                        continue;
-                    }
-                    
-                    $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
-                    $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
-                    $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
-                    $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
-                
-                
-                }
-                
-                $link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,'users');
-                
-
-
-
-            
-                $sql = sprintf("INSERT INTO  contactinfo (firstname, lastname, jobtitle, email, phone, street, city, country) VALUES ('%s',' %s', '%s', '%s', '%s', '%s', '%s', '%s')",
-                    mysqli_real_escape_string($link, $firstname),
-                    mysqli_real_escape_string($link, $lastname),
-                    mysqli_real_escape_string($link, $jobtitle),
-                    mysqli_real_escape_string($link, $email),
-                    mysqli_real_escape_string($link, $phone),
-                    mysqli_real_escape_string($link, $street),
-                    mysqli_real_escape_string($link, $city),
-                    mysqli_real_escape_string($link, $country)
-
-                );
-    
-                // echo $sql;
-                
-                if (!$link) {
-                    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-                    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-                    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-                    exit;
-                }
-                
-                // echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-                // echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
-                
-
-                mysqli_query($link, $sql);
-                
-                mysqli_close($link);
-        
-        
-            }
-
-
-    ?>
+   
 
     <h1>Abonnement</h1>
     <h4>Udfyld formularen herunder og send</h4>
-        <form method="post" action="/api/contactinfo/contactinfoCreate.php">
+        <form id="contactInfo">
             <div class="form-group">
                 <label for="firstname">Firstnamre</label>
                 <input id="firstname" name="firstname" class="form-control" type="text">
@@ -168,7 +91,34 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
+    <script>
+        $('#contactInfo').submit(function($e) {
+            var data = $('#contactInfo').serializeArray().reduce(function(obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+            }, {});
+            
+            data = JSON.stringify(data);
 
+             $.ajax({
+                url: '/api/contactinfo/contactinfoCreate.php',
+                type: 'post',
+                dataType: 'json',
+                success: function(data) {
+                    console.log("Data: " + data.message);
+                },
+                error: function(e) {
+                    console.log('Error:' + e.messageText)
+                },
+                complete: function() {
+                    console.log("done");
+                },
+                data: data
+            })
+
+            $e.preventDefault();
+        });
+    </script>
 
 </body>
 
