@@ -19,6 +19,8 @@ class ContactInfo {
         echo "In Constructor";
 
         $this->conn = $db;
+
+        echo "End constructor";
     }
 
     //Get list of contacts
