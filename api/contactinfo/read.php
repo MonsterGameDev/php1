@@ -8,7 +8,7 @@
 
     //Instantiate and connect
    echo "Hello Read is here";
-
+try {
    $database = new Database();
    $db = $database->connect();
     //Instantiate Contactinfo - object
@@ -20,3 +20,6 @@
     $num = $result->rowCount();
 
     echo $num;
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
