@@ -59,14 +59,14 @@ class ContactInfo {
 
         
             $sql = sprintf("INSERT INTO  contactinfo (firstname, lastname, jobtitle, email, phone, street, city, country) VALUES ('%s',' %s', '%s', '%s', '%s', '%s', '%s', '%s')",
-            mysqli_real_escape_string($link, $firstname),
-            mysqli_real_escape_string($link, $lastname),
-            mysqli_real_escape_string($link, $jobtitle),
-            mysqli_real_escape_string($link, $email),
-            mysqli_real_escape_string($link, $phone),
-            mysqli_real_escape_string($link, $street),
-            mysqli_real_escape_string($link, $city),
-            mysqli_real_escape_string($link, $country)
+            $firstname,
+            $lastname,
+            $jobtitle,
+            $email,
+            $phone,
+            $street,
+            $city,
+            $country
 
         );
             //prepare statement
