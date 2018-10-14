@@ -112,7 +112,7 @@
 
 
     ?>
-        <form method="post" action="/api/contactinfo/read.php">
+        <form method="post" action="/api/contactinfo/contactinfoCreate.php">
             <div class="form-group">
                 <label for="firstname">Firstnamre</label>
                 <input id="firstname" name="firstname" class="form-control" type="text">
