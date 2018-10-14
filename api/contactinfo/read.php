@@ -7,15 +7,18 @@
     include_once './../../models/contactinfo.php';
 
     //Instantiate and connect
-    $database = new Database();
-    $db = $database->connect();
-
+try {
+   $database = new Database();
+   $db = $database->connect();
     //Instantiate Contactinfo - object
     $ci = new ContactInfo($db);
 
-    //Reading content
-    $result = $ci.read();
-    //Get rowcount
+    // Reading content
+    $result = $ci>read();
+    // Get rowcount
     $num = $result->rowCount();
-    
-    echo "FOUND " . $num . " records";
+
+    echo "I GOT: " . $num;
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
