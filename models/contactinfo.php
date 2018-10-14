@@ -17,15 +17,18 @@ class ContactInfo {
 
     public function __construct($db) {
         echo "In Constructor";
-        
+
         $this->conn = $db;
     }
 
     //Get list of contacts
     public function read() {
+        echo "in read";
         //create query
         $query = 'SELECT firstname, lastname, jobtitle, email, phone, street, city, country FROM contactinfo ORDER BY lastname ASC';
-echo "1";        //prepare statement
+echo "1";
+
+//prepare statement
         $stmt = $this->conn->prepare($query);
 echo "2";
         //Execute query
