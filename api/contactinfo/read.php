@@ -17,6 +17,8 @@
     $result = $ci.read();
     //Get rowcount
     $num = $result->rowCount();
+    
+    echo "FOUND " . $num . " records";
 
     //Check if any records
     if ($num > 0) {
