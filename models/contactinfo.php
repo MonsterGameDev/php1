@@ -37,7 +37,16 @@ class ContactInfo {
     }
 
     public function create($data) {
-        echo "In create";
+        echo printf('Firstname: %s<br>
+    lastname: %s<br>
+    jobtitle: %s<br>
+    email: %s<br>
+    phone: %s<br>
+    street: %s<br>
+    city: %s<br>
+    country: %s<br>
+    ', $firstname, $lastname, $jobtitle, $email, $phone, $street, $city, $country);
+
     }
 
 
