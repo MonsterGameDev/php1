@@ -13,12 +13,12 @@ try {
     //Instantiate Contactinfo - object
     $ci = new ContactInfo($db);
 
-    //Reading content
-    // $result = $ci.read();
-    //Get rowcount
-    // $num = $result->rowCount();
+    // Reading content
+    $result = $ci.read();
+    // Get rowcount
+    $num = $result->rowCount();
 
-    echo $ci;
+    echo $num;
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
