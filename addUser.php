@@ -99,8 +99,8 @@
                     exit;
                 }
                 
-                echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-                echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+                // echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
+                // echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
                 
 
                 mysqli_query($link, $sql);
@@ -112,6 +112,9 @@
 
 
     ?>
+
+    <h1>Abonnement</h1>
+    <h4>Udfyld formularen herunder og send</h4>
         <form method="post" action="/api/contactinfo/contactinfoCreate.php">
             <div class="form-group">
                 <label for="firstname">Firstnamre</label>
