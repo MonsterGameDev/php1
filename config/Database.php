@@ -16,7 +16,7 @@
                 }
                 
                 $this->host = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
-                $this->dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+                $this->db_name = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
                 $this->username = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
                 $this->password = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 
@@ -24,6 +24,8 @@
             };
 
             try {
+               // $strConn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name, $this->username, $this->password;
+
                 $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->db_name, 
                 $this->username, $this->password);
                 
