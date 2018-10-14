@@ -18,8 +18,6 @@ try {
     // Get rowcount
     $num = $result->rowCount();
 
-    echo "I GOT: " . $num;
-
 //Check if any records
 if ($num > 0) {
     $returnArr = Array();
