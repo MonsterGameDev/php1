@@ -19,7 +19,7 @@
     $num = $result->rowCount();
 
     //Check if any records
-    if($num > 0) {
+    if ($num > 0) {
         $returnArr = Array();
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract( $row);
@@ -38,9 +38,7 @@
 
             array_push($returnArr, $item);
         }
-        echo json_encode($returnArr)
+        echo json_encode($returnArr);
     } else {
-        echo json_encode (
-            array('message' => 'No contacts found')
-        )
+        echo json_encode (Array('message' => 'No contacts found'));
     }

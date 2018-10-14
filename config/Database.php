@@ -31,13 +31,13 @@
                  echo 'Connection Error: ' . $e.getMessage();
              }
 
-             return this->conn;
+             return $this->conn;
 
 
         }
 
         
         
-        $link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,'users');
+      //  $link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,'users');
         
     }
