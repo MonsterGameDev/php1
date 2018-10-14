@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<script<>, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>hallo</h1>
     
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-
     <script>
+    $(document).ready(function(){
+        
+    
+    
         var jsonObject = {
             firstname:'Per',
             lastname: 'hoyer'
         }       
 
-        console.log ("hi");
-
-
 
         $.ajax({
-            url: '/api/contactinfo/contactinfoCreate.php',
+            url: '/testsite/api/contactinfo/contactinfoCreate.php',
             type: 'post',
             dataType: 'json',
             success: function(data) {
@@ -33,6 +33,8 @@
             },
             data: jsonObject
         })
+ 
+})
     </script>
 
 
