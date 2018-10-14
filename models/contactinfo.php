@@ -51,10 +51,10 @@ class ContactInfo {
         
         //Execute query
         if($stmt->execute()) {
-            return printf("Bruger: %s %s oprettet succesfuldt", $firstname, $lastname);
+            return "Bruger: ". $firstname . " " .  $lastname . " oprettet succesfuldt";
         } else {
 
-            return printf("Der opstod en fejl - bruger: %s %s kunne ikke oprettes", $firstname, $lastname);
+            return "Der opstod en fejl - bruger: ". $firstname . " " .  $lastname . " kunne ikke oprettes";
         }
         
         
