@@ -37,28 +37,45 @@ class ContactInfo {
     }
 
     public function create($data) {
-        
-$firstname = $data->firstname;
-$lastname = $data->lastname;
-$jobtitle = $data->jobtitle;
-$email = $data->email;
-$phone = $data->phone;
-$street = $data->street;
-$city = $data->city;
-$country = $data->country;
-
-
-
+                
+        $firstname = $data->firstname;
+        $lastname = $data->lastname;
+        $jobtitle = $data->jobtitle;
+        $email = $data->email;
+        $phone = $data->phone;
+        $street = $data->street;
+        $city = $data->city;
+        $country = $data->country;
 
         echo printf('Firstname: %s<br>
-    lastname: %s<br>
-    jobtitle: %s<br>
-    email: %s<br>
-    phone: %s<br>
-    street: %s<br>
-    city: %s<br>
-    country: %s<br>
-    ', $firstname, $lastname, $jobtitle, $email, $phone, $street, $city, $country);
+            lastname: %s<br>
+            jobtitle: %s<br>
+            email: %s<br>
+            phone: %s<br>
+            street: %s<br>
+            city: %s<br>
+            country: %s<br>
+            ', $firstname, $lastname, $jobtitle, $email, $phone, $street, $city, $country);
+
+        
+            $sql = sprintf("INSERT INTO  contactinfo (firstname, lastname, jobtitle, email, phone, street, city, country) VALUES ('%s',' %s', '%s', '%s', '%s', '%s', '%s', '%s')",
+            mysqli_real_escape_string($link, $firstname),
+            mysqli_real_escape_string($link, $lastname),
+            mysqli_real_escape_string($link, $jobtitle),
+            mysqli_real_escape_string($link, $email),
+            mysqli_real_escape_string($link, $phone),
+            mysqli_real_escape_string($link, $street),
+            mysqli_real_escape_string($link, $city),
+            mysqli_real_escape_string($link, $country)
+
+        );
+            //prepare statement
+                    $stmt = $this->conn->prepare($sql);
+            
+                    //Execute query
+                    $stmt->execute();
+            
+                    return $stmt;
 
     }
 
