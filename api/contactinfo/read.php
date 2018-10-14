@@ -18,7 +18,7 @@ try {
     //Get rowcount
     // $num = $result->rowCount();
 
-    echo $num;
+    echo $ci;
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
