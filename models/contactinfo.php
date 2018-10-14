@@ -16,6 +16,8 @@ class ContactInfo {
     public $country;
 
     public function __construct($db) {
+        echo "In Constructor";
+        
         $this->conn = $db;
     }
 
