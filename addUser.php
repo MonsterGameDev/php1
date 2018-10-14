@@ -48,16 +48,16 @@
             $city = $_POST["city"];
             $country = $_POST["country"];
 
-            echo printf("You entered: <br>
-                Firstname: %s <br>
-                Lastname: %s <br>
-                Jobtitle: %s <br>
-                Email: %s <br>
-                Phone: %s <br>
-                Street: %s <br>
-                City: %s <br>
-                Country: %s
-                ", $firstname, $lastname,$jobtitle, $email, $phone, $street, $city, $country);
+            // echo printf("You entered: <br>
+            //     Firstname: %s <br>
+            //     Lastname: %s <br>
+            //     Jobtitle: %s <br>
+            //     Email: %s <br>
+            //     Phone: %s <br>
+            //     Street: %s <br>
+            //     City: %s <br>
+            //     Country: %s
+            //     ", $firstname, $lastname,$jobtitle, $email, $phone, $street, $city, $country);
         
                 foreach ($_SERVER as $key => $value) {
                     if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
@@ -90,7 +90,7 @@
 
                 );
     
-                echo $sql;
+                // echo $sql;
                 
                 if (!$link) {
                     echo "Error: Unable to connect to MySQL." . PHP_EOL;
