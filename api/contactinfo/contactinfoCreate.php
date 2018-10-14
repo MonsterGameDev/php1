@@ -3,4 +3,4 @@
  echo $data;
  $data1 = json_decode($data);
 
- echo  $data1->firstname;
+ echo  $data->firstname;
