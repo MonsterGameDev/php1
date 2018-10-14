@@ -20,14 +20,16 @@ $country = $data->country;
 
 
 
-    try {
-        $database = new Database();
-        $db = $database->connect();
-         //Instantiate Contactinfo - object
-         $ci = new ContactInfo($db);
-     
-         // Reading content
-         $result = $ci->create($data);
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
-    }
+try {
+    $database = new Database();
+    $db = $database->connect();
+        //Instantiate Contactinfo - object
+        $ci = new ContactInfo($db);
+    
+        // Reading content
+        $result = $ci->create($data);
+        echo "Result: " . $result;
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
+

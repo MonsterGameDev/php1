@@ -26,24 +26,16 @@ if ($num > 0) {
 
         $item = Array(
             'id'=> $id,
-            'firstname' => $firstname,
-            'lastname' => $lastname,
-            'jobtitle' => $jobtitle,
-            'email' => $email,
-            'phone' => $phone,
-            'street' => $street,
-            'city' => $city,
-            'country' => $country 
+            'firstname' => $firstname, 'lastname' => $lastname, 'jobtitle' => $jobtitle, 'email' => $email,
+            'phone' => $phone, 'street' => $street, 'city' => $city, 'country' => $country 
         );
 
         array_push($returnArr, $item);
     }
     echo json_encode($returnArr);
-} else {
-    echo json_encode (Array('message' => 'No contacts found'));
-}
-
-
+    } else {
+        echo json_encode (Array('message' => 'No contacts found'));
+    }
 
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();

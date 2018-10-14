@@ -1,6 +1,4 @@
 <?php
-
-
 class ContactInfo {
     //DBStuff
     private $conn;
@@ -26,13 +24,10 @@ class ContactInfo {
     public function read() {
         //create query
         $query = 'SELECT firstname, lastname, jobtitle, email, phone, street, city, country FROM contactinfo ORDER BY lastname ASC';
-
-//prepare statement
+        //prepare statement
         $stmt = $this->conn->prepare($query);
-
         //Execute query
         $stmt->execute();
-
         return $stmt;
     }
 
@@ -47,36 +42,22 @@ class ContactInfo {
         $city = $data->city;
         $country = $data->country;
 
-        echo printf('Firstname: %s<br>
-            lastname: %s<br>
-            jobtitle: %s<br>
-            email: %s<br>
-            phone: %s<br>
-            street: %s<br>
-            city: %s<br>
-            country: %s<br>
-            ', $firstname, $lastname, $jobtitle, $email, $phone, $street, $city, $country);
-
+      
+        $sql = sprintf("INSERT INTO  contactinfo (firstname, lastname, jobtitle, email, phone, street, city, country) 
+                VALUES ('%s',' %s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                $firstname, $lastname, $jobtitle, $email, $phone, $street, $city, $country);
+        //prepare statement
+        $stmt = $this->conn->prepare($sql);
         
-            $sql = sprintf("INSERT INTO  contactinfo (firstname, lastname, jobtitle, email, phone, street, city, country) VALUES ('%s',' %s', '%s', '%s', '%s', '%s', '%s', '%s')",
-            $firstname,
-            $lastname,
-            $jobtitle,
-            $email,
-            $phone,
-            $street,
-            $city,
-            $country
+        //Execute query
+        if($stmt->execute()) {
+            return printf("Bruger: %s %s oprettet succesfuldt", $firstname, $lastname);
+        } else {
 
-        );
-            //prepare statement
-                    $stmt = $this->conn->prepare($sql);
-            
-                    //Execute query
-                    $stmt->execute();
-            
-                    return $stmt;
-
+            return printf("Der opstod en fejl - bruger: %s %s kunne ikke oprettes", $firstname, $lastname);
+        }
+        
+        
     }
 
 
