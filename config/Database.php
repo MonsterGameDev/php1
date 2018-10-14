@@ -34,7 +34,7 @@
                 
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                echo "this went well";
+                
 
              } catch (PDOException $e) {
                  echo 'Connection Error: ' . $e.getMessage();

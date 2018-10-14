@@ -23,13 +23,12 @@ class ContactInfo {
     public function read() {
         //create query
         $query = 'SELECT firstname, lastname, jobtitle, email, phone, street, city, country FROM contactinfo ORDER BY lastname ASC';
-        
-        //prepare statement
+echo "1";        //prepare statement
         $stmt = $this->conn->prepare($query);
-
+echo "2";
         //Execute query
         $stmt->execute();
-
+echo "3";
         return $stmt;
     }
 
