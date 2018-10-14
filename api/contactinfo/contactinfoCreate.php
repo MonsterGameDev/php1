@@ -29,6 +29,8 @@ try {
         // Reading content
         $result = $ci->create($data);
         echo "Result: " . $result;
+        echo json_encode (Array('message' => $result));
+        
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
