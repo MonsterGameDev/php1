@@ -22,11 +22,7 @@ class ContactInfo {
     //Get list of contacts
     public function read() {
         //create query
-        $query = 'SELECT firstname, lastname, jobtitle, email, phone, street, city, country
-            FROM
-            ' . $this->table . '
-            ORDER BY
-                lastname ASC';
+        $query = 'SELECT firstname, lastname, jobtitle, email, phone, street, city, country FROM contactinfo ORDER BY lastname ASC';
         
         //prepare statement
         $stmt = $this->conn->prepare($query);
