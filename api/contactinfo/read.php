@@ -14,7 +14,7 @@ try {
     $ci = new ContactInfo($db);
 
     // Reading content
-    $result = $ci.read();
+    $result = $ci->read();
     // Get rowcount
     $num = $result->rowCount();
 
