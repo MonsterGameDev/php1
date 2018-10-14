@@ -1,3 +1,4 @@
 <?php
- $data = file_get_content('php://input');
- echo "Data:";
+echo "hello";
+//  $data = file_get_content('php://input');
+//  echo "Data:";
